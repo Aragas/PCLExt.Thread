@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>PCLExt.Thread</id>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <title>PCL Extension - Thread API</title>
         <authors>Aragas</authors>
         <owners>Aragas</owners>
         <licenseUrl>https://github.com/Aragas/PCLExt.Thread/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/Aragas/PCLExt.Thread</projectUrl>
-        <iconUrl>https://github.com/Aragas/PCLExt.Thread/blob/master/common/sushi_64.png</iconUrl>
+        <iconUrl>https://raw.githubusercontent.com/Aragas/PCLExt.Thread/master/common/sushi_64.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>PCL Extension provides a thread implementation for .NET, Xamarin.iOS, Xamarin.Android. This makes it easier to create cross-platform .NET libraries and apps.</description>
         <summary>PCL Extension provides a thread implementation for PCL platforms</summary>
