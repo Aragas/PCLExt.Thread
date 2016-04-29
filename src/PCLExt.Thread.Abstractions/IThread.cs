@@ -5,6 +5,26 @@ namespace PCLExt.Thread
     /// <summary>
     /// 
     /// </summary>
+    public interface IThreadFactory
+    {
+        //IThread CreateThread(Action action);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        IThread Create(ThreadStart action);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        IThread Create(ParameterizedThreadStart action);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public delegate void ThreadStart();
     /// <summary>
     /// 

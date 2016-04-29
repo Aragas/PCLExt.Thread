@@ -3,6 +3,26 @@
     /// <summary>
     /// 
     /// </summary>
+    public class DesktopThreadFactory : IThreadFactory
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="start"></param>
+        /// <returns></returns>
+        public IThread Create(ThreadStart start) { return new DesktopThread(start); }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="start"></param>
+        /// <returns></returns>
+        public IThread Create(ParameterizedThreadStart start) { return new DesktopThread(start); }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public class DesktopThread : IThread
     {
         private readonly System.Threading.Thread _thread;

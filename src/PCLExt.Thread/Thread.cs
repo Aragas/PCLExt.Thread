@@ -1,10 +1,38 @@
-﻿namespace PCLExt.Thread
+﻿using System;
+
+namespace PCLExt.Thread
 {
     /// <summary>
     /// 
     /// </summary>
     public static class Thread
     {
+        static Lazy<IThreadFactory> _instance = new Lazy<IThreadFactory>(CreateInstance, System.Threading.LazyThreadSafetyMode.PublicationOnly);
+
+        static IThreadFactory CreateInstance()
+        {
+#if COMMON
+            return new DesktopThreadFactory();
+#endif
+
+            return null;
+        }
+
+        private static IThreadFactory Instance
+        {
+            get
+            {
+                var ret = _instance.Value;
+                if (ret == null)
+                    throw NotImplementedInReferenceAssembly();
+                return ret;
+            }
+        }
+
+        internal static Exception NotImplementedInReferenceAssembly() => new NotImplementedException("This functionality is not implemented in the portable version of this assembly. You should reference the PCLExt.Thread NuGet package from your main application project in order to reference the platform-specific implementation.");
+
+
+
         /// <summary>
         /// 
         /// </summary>
