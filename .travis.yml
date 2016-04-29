@@ -1,0 +1,19 @@
+language: csharp
+mono:
+  - latest
+
+solution: PCLExt.Thread.sln
+
+before_install:
+  - git submodule update --init --recursive
+  
+install:
+  - nuget restore PCLExt.Thread.sln
+  
+script:
+  - xbuild /p:Configuration=Release PCLExt.Thread.sln
+  - xbuild /p:Configuration=Debug PCLExt.Thread.sln
+
+notifications:
+  email:
+    on_success: always
