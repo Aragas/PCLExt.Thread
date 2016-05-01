@@ -55,7 +55,7 @@ namespace PCLExt.Thread
         /// <returns></returns>
         public static IThread Create(ThreadStart start)
         {
-#if DESKTOP || ANDROID || __IOS__
+#if DESKTOP || ANDROID || __IOS__ || MAC
             return new DesktopThread(start);
 #endif
 
@@ -69,7 +69,7 @@ namespace PCLExt.Thread
         /// <returns></returns>
         public static IThread Create(ParameterizedThreadStart start)
         {
-#if DESKTOP || ANDROID || __IOS__
+#if DESKTOP || ANDROID || __IOS__ || MAC
             return new DesktopThread(start);
 #endif
 
