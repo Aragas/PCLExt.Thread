@@ -7,31 +7,10 @@ namespace PCLExt.Thread
     /// </summary>
     public static class Thread
     {
-        static Lazy<IThreadFactory> _instance = new Lazy<IThreadFactory>(CreateInstance, System.Threading.LazyThreadSafetyMode.PublicationOnly);
-
-        static IThreadFactory CreateInstance()
-        {
-#if COMMON
-            return new DesktopThreadFactory();
-#endif
-
-            return null;
-        }
-
-        private static IThreadFactory Instance
-        {
-            get
-            {
-                var ret = _instance.Value;
-                if (ret == null)
-                    throw NotImplementedInReferenceAssembly();
-                return ret;
-            }
-        }
-
-        internal static Exception NotImplementedInReferenceAssembly() => new NotImplementedException("This functionality is not implemented in the portable version of this assembly. You should reference the PCLExt.Thread NuGet package from your main application project in order to reference the platform-specific implementation.");
-
-
+        private static Exception NotImplementedInReferenceAssembly() => 
+            new NotImplementedException(@"This functionality is not implemented in the portable version of this assembly.
+You should reference the PCLExt.Thread NuGet package from your main application project in order to reference the platform-specific implementation.");
+        
 
         /// <summary>
         /// 
@@ -40,11 +19,11 @@ namespace PCLExt.Thread
         {
             get
             {
-#if COMMON
+#if DESKTOP || ANDROID || __IOS__ || MAC
                 return System.Diagnostics.Process.GetCurrentProcess().Threads.Count;
 #endif
 
-                return 0;
+                throw NotImplementedInReferenceAssembly();
             }
         }
 
@@ -59,7 +38,7 @@ namespace PCLExt.Thread
             return new DesktopThread(start);
 #endif
 
-            return null;
+            throw NotImplementedInReferenceAssembly();
         }
 
         /// <summary>
@@ -73,7 +52,7 @@ namespace PCLExt.Thread
             return new DesktopThread(start);
 #endif
 
-            return null;
+            throw NotImplementedInReferenceAssembly();
         }
 
         /// <summary>
@@ -82,7 +61,7 @@ namespace PCLExt.Thread
         /// <param name="milliseconds"></param>
         public static void Sleep(int milliseconds)
         {
-#if COMMON
+#if DESKTOP || ANDROID || __IOS__ || MAC
             System.Threading.Thread.Sleep(milliseconds);
 #endif
         }
@@ -93,7 +72,7 @@ namespace PCLExt.Thread
         /// <param name="waitCallback"></param>
         public static void QueueUserWorkItem(WaitCallback waitCallback)
         {
-#if COMMON
+#if DESKTOP || ANDROID || __IOS__ || MAC
             System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(waitCallback));
 #endif
         }

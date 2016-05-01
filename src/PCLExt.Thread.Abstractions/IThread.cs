@@ -5,32 +5,17 @@ namespace PCLExt.Thread
     /// <summary>
     /// 
     /// </summary>
-    public interface IThreadFactory
-    {
-        //IThread CreateThread(Action action);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="action"></param>
-        /// <returns></returns>
-        IThread Create(ThreadStart action);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="action"></param>
-        /// <returns></returns>
-        IThread Create(ParameterizedThreadStart action);
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
     public delegate void ThreadStart();
     /// <summary>
     /// 
     /// </summary>
     /// <param name="obj"></param>
     public delegate void ParameterizedThreadStart(object obj);
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="state"></param>
+    public delegate void WaitCallback(object state);
     /// <summary>
     /// 
     /// </summary>
@@ -65,10 +50,4 @@ namespace PCLExt.Thread
         /// </summary>
         void Abort();
     }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="state"></param>
-    public delegate void WaitCallback(object state);
 }
