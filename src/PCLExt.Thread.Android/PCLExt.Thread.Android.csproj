@@ -44,19 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\common\CommonAssemblyInfo.cs">
+    <Compile Include="$(SolutionDir)\common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\PCLExt.Thread.Desktop\DesktopThread.cs">
+    <Compile Include="$(SolutionDir)\src\PCLExt.Thread.Desktop\DesktopThread.cs">
       <Link>DesktopThread.cs</Link>
     </Compile>
-    <Compile Include="..\PCLExt.Thread\Thread.cs">
+    <Compile Include="$(SolutionDir)\src\PCLExt.Thread\Thread.cs">
       <Link>Thread.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PCLExt.Thread.Abstractions\PCLExt.Thread.Abstractions.csproj">
+    <ProjectReference Include="$(SolutionDir)\src\PCLExt.Thread.Abstractions\PCLExt.Thread.Abstractions.csproj">
       <Project>{3f8d0494-6ee2-47fe-b263-f09a5ea3d0b3}</Project>
       <Name>PCLExt.Thread.Abstractions</Name>
     </ProjectReference>
